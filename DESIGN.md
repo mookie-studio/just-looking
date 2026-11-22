@@ -4,11 +4,11 @@ The single source of truth for how Just Looking looks: colours, type, space, sha
 
 ## The idea
 
-"Just looking" is what a shopper says when browsing without buying, and the product has no prices, cart or checkout. Its interface is a sibling of mookie studio's EntryHub: dense but calm, flat white sheets ruled with hairlines on a cool ground, one family in two voices, one saturated ink (petrol) for the shell and the action, and sticker colours that each keep one job. Highlighter yellow marks what is singled out. The brand's own shapes are the **shop window** of the logo and the **hang tag** whose price is covered by a stamp that says "Just looking" ("Solo mirando").
+"Just looking" is what a shopper says when browsing without buying, and the product has no prices, cart or checkout. Its interface is a sibling of mookie studio's EntryHub: dense but calm, flat white sheets ruled with hairlines on a cool ground, one family in two voices, one electric ink (violet) for the shell and the action, and sticker colours that each keep one job. Highlighter yellow marks what is singled out. The brand's own shape is the **hang tag**: it is the logo, and on the landing it carries product data with the price covered by a stamp that says "Just looking" ("Solo mirando").
 
 ## Where it applies
 
-- **Landing page** (`/`): the full brand. `landing-ground` (petrol) ground, highlighter and pale-petrol HangTags, the reversed wordmark, the `display-xl` headline with its highlighted word, the tag button for "Try the demo". English and Spanish.
+- **Landing page** (`/`): the full brand. `landing-ground` (violet) ground, highlighter and pale-violet HangTags, the reversed wordmark, the `display-xl` headline with its highlighted word, a line that explains the pun (the "Just looking" stamp and what it means), the tag button for "Try the demo". English and Spanish.
 - **Sign-in, admin and platform** (`/login`, `/accept-invite`, `/admin`, `/platform`): `surface` ground, white sheets, `ink` text, one `accent` primary action per view, StatusBadges, Fields. The wordmark sits in the white top bar; the brand shows in details (a hang tag on the sign-in panel, the empty window in empty states, yellow for Featured, the Stamp on the 404 page), never as large colour fields.
 - **A Tenant's public catalog** (`/{tenantSlug}`): the Tenant leads. Its Logo replaces ours in the header; its Brand color, when set, replaces `accent` and `focus-ring` for its header and buttons, with black or white text by contrast. Our neutrals, type and components stay. Just Looking appears only as a footer link "Made with Just Looking".
 
@@ -27,8 +27,8 @@ One theme. The scales are the source (`--color-brand-*`, `--color-gray-*`, `--co
 
 | Scale | Values | Notes |
 | --- | --- | --- |
-| `brand` (petrol ink) | 25 `#f0fafa` · 50 `#e3f5f6` · 100 `#ccedee` · 200 `#9adcdf` · 300 `#41c3ca` · 400 `#019da4` · 500 `#007b80` · 600 `#026267` · 700 `#014d51` · 800 `#003c3f` · 900 `#002b2d` · 950 `#001c1e` | EntryHub's lightness steps at the petrol hue. 600 is the action, 700 the shell, 950 the deep ink. |
-| `gray` | 25 `#f3f7f7` · 50 `#eaf1f2` · 100 `#dfe9ea` · 200 `#ccdddd` · 300 `#adc6c8` · 400 `#75999b` · 500 `#497476` · 600 `#2e5a5c` · 700 `#104346` · 800 `#002e30` · 900 `#001f21` | Neutrals tinted towards the ink. 400 is darkened so field borders meet 3:1. |
+| `brand` (electric violet) | 25 `#f9f6fe` · 50 `#f3eefc` · 100 `#e9e1fa` · 200 `#d4c5f4` · 300 `#b99eea` · 400 `#9b6fdd` · 500 `#8042cd` · 600 `#6c22b7` · 700 `#551594` · 800 `#411371` · 900 `#2e114f` · 950 `#1d0c33` | EntryHub's lightness and chroma steps at the violet hue: as saturated as EntryHub's blue. 600 is the action, 700 the shell, 950 the deep ink. |
+| `gray` | 25 `#f6f5f9` · 50 `#f0eff4` · 100 `#e8e5ee` · 200 `#dad6e3` · 300 `#c3bdd0` · 400 `#978ea9` · 500 `#706584` · 600 `#564c69` · 700 `#3f3553` · 800 `#2b203e` · 900 `#1f1232` | Neutrals tinted towards the ink. 400 is darkened so field borders meet 3:1. |
 | `highlight` | 200 `#fff3a3` · 400 `#ffe53d` | Highlighter yellow. |
 | `success` | 50 `#ddf5e8` · 500 `#17a865` · 700 `#0a6a3f` | Sticker: Published, success. |
 | `warning` | 50 `#fff0d2` · 500 `#f39a0b` · 700 `#8a4a00` | Sticker: Draft, warnings. |
@@ -48,7 +48,7 @@ One theme. The scales are the source (`--color-brand-*`, `--color-gray-*`, `--co
 | `accent` | `{brand-600}` | Primary action fill. Pair with `on-accent`. |
 | `on-accent` | `#ffffff` | Text and icons on `accent`. |
 | `accent-hover` | `{brand-700}` | `accent` while hovered (`brand-800` pressed). |
-| `highlight` | `{highlight-400}` | Featured, hang tags, the stamp ground, the logo's awning, selection, focus on ink. Pair with `on-highlight`. Never text. |
+| `highlight` | `{highlight-400}` | Featured, hang tags (the logo's too), the stamp ground, selection, focus on ink. Pair with `on-highlight`. Never text. |
 | `on-highlight` | `{brand-950}` | Text on `highlight`. |
 | `link` | `{brand-600}` | Inline links on white and `surface`. |
 | `focus-ring` | `{brand-600}` | Solid 2px focus ring, 2px offset, on light surfaces. On ink grounds the ring is `highlight-400`. |
@@ -61,8 +61,8 @@ One theme. The scales are the source (`--color-brand-*`, `--color-gray-*`, `--co
 
 Rules:
 
-- **The Sticker Job Rule.** Each sticker colour has one job: green is Published or a success, amber is Draft or a warning, coral is an error or a destructive action. Open is pale petrol (`brand-50`, text `brand-800`); Archived and Handled are gray with a hollow dot; Featured is solid `highlight-400`. A state is the 500-shade dot on its tint with dark text, always with its word; never 500-shade text on white.
-- **The Highlighter Rule.** Yellow means "singled out" (Featured, the tag, the logo's awning, the landing's highlighted word) and selection. It is never a generic accent, a hover colour or text. The landing alone spends it on its primary action.
+- **The Sticker Job Rule.** Each sticker colour has one job: green is Published or a success, amber is Draft or a warning, coral is an error or a destructive action. Open is pale violet (`brand-50`, text `brand-800`); Archived and Handled are gray with a hollow dot; Featured is solid `highlight-400`. A state is the 500-shade dot on its tint with dark text, always with its word; never 500-shade text on white.
+- **The Highlighter Rule.** Yellow means "singled out" (Featured, the tag, the logo, the landing's highlighted word) and selection. It is never a generic accent, a hover colour or text. The landing alone spends it on its primary action.
 - **The White Cell Rule.** On an ink ground, the current place is a white cell with `brand-900` text, never a yellow one.
 - **The Signature Rule.** The mookie studio wordmark (its red `#E0202F`) appears once per surface; its red is never an interface colour.
 
@@ -70,20 +70,20 @@ Rules:
 
 | Pair | Ratio |
 | --- | --- |
-| `ink` on white / on `surface` | 17.2:1 / 16.2:1 |
-| `ink-muted` on white / on `surface` | 7.7:1 / 7.1:1 |
-| `on-accent` on `accent` | 7.1:1 |
-| `on-highlight` on `highlight` | 14.0:1 |
-| `link` on white | 7.1:1 |
+| `ink` on white / on `surface` | 17.6:1 / 16.3:1 |
+| `ink-muted` on white / on `surface` | 8.0:1 / 7.4:1 |
+| `on-accent` on `accent` | 8.2:1 |
+| `on-highlight` on `highlight` | 14.3:1 |
+| `link` on white | 8.2:1 |
 | `success` on `success-soft` | 5.8:1 |
 | `warning` on `warning-soft` | 6.1:1 |
 | `danger` on white / on `danger-soft` | 7.1:1 / 6.0:1 |
 | White on `error-600` (destructive button) | 4.9:1 |
-| `gray-700` on `neutral-soft` | 8.9:1 |
-| `landing-ink` / `landing-ink-muted` on `landing-ground` | 9.6:1 / 7.8:1 |
-| `highlight-400` on `landing-ground` (focus ring, stamp) | 7.6:1 |
+| `gray-700` on `neutral-soft` | 9.1:1 |
+| `landing-ink` / `landing-ink-muted` on `landing-ground` | 10.9:1 / 8.7:1 |
+| `highlight-400` on `landing-ground` (focus ring, stamp) | 8.6:1 |
 | `border-strong` on white (needs 3:1) | 3.1:1 |
-| `focus-ring` on white (needs 3:1) | 7.1:1 |
+| `focus-ring` on white (needs 3:1) | 8.2:1 |
 
 Text needs 4.5:1; focus rings, control borders and meaningful marks need 3:1. Every pair above passes.
 
@@ -131,25 +131,25 @@ One family, **Archivo** (Google Fonts, `Archivo:wdth,wght@62..125,400..900`, `di
 
 ## Logo
 
-The mark is a **shop window**: a highlighter-yellow scalloped awning over a window with one thing on display, drawn with a 2px line on a 32px rounded tile (a sibling of EntryHub's planner-sheet mark). The wordmark is the mark followed by "Just Looking" in the condensed voice, converted to outlines. Files in `web/public/brand/`:
+The mark is a **hang tag**: a highlighter-yellow swing tag with its eyelet and a price line, tilted -12°, on a 32px rounded tile (a sibling of EntryHub's planner-sheet mark). The wordmark is the mark followed by "Just Looking" in the condensed voice, converted to outlines. Files in `web/public/brand/`:
 
 | File | Look | Use on |
 | --- | --- | --- |
-| `just-looking-wordmark.svg` | `brand-700` tile, white lines, name `gray-900` | Light grounds: white, `surface`, the top bar |
-| `just-looking-wordmark-reversed.svg` | White tile, `brand-800` lines, white name | `landing-ground` and dark grounds |
-| `just-looking-mark-ink.svg` | The ink tile alone | Favicon, app icon, social avatar, small spaces on light grounds |
-| `just-looking-mark.svg` | The white tile alone | Small spaces on ink grounds |
+| `just-looking-wordmark.svg` | `brand-600` tile, yellow tag, name `gray-900` | Light grounds: white, `surface`, the top bar |
+| `just-looking-wordmark-reversed.svg` | White tile, yellow tag, white name | `landing-ground` and dark grounds |
+| `just-looking-mark-ink.svg` | The violet tile alone | Favicon, app icon, social avatar, small spaces on light grounds |
+| `just-looking-mark.svg` | The white tile alone | Small spaces on violet grounds |
 
 - Always an `<img>` of these files with `alt="Just Looking"` (or `alt=""` when the text beside it already names Just Looking); never retype, recolour or redraw.
 - Minimum height 20px (wordmark), 16px (mark). Clear space: a quarter of the tile on every side.
 
 ## mookie studio credit
 
-Just Looking is a product by mookie studio. The maker's credit sits in the landing footer, on the right of its `brand-950` band (stacked below the rest on phones): the label "A product by" ("Un producto de") in the header-band style, `landing-ink-muted`, above the mookie studio wordmark.
+Just Looking is a product by mookie studio. The landing footer is laid out like EntryHub's: on its `brand-950` band, the maker's credit has its own row, the label "A product by" ("Un producto de", 16px, `landing-ink-muted`) above the mookie studio wordmark, closed by a 1px white rule at 20%; below it, one row with the product line "Just Looking · product catalog" on the left and Sign in and the year on the right.
 
 - Component `MookieStudioCredit` in `web/src/components/brand/`; files in `web/public/brand/mookie-studio/` (see its README), copied unchanged from mookie studio's logo pack.
 - `wordmark-on-dark.svg` on ink and dark grounds, `wordmark-on-light.svg` (prop `onLight`) on light grounds. Never recoloured, redrawn or cropped.
-- Shown 64px high. Keep at least 24px between the credit and any other footer item.
+- Shown large: 96px high (104px from 640px), the same size as in EntryHub's footer. The file includes its clear space; a -8px margin lines the mark up with the label.
 - The wordmark links to mookie studio on GitHub (`https://github.com/mookie-studio`), in a new tab, with the accessible name "mookie studio on GitHub" and a visible focus outline.
 - One credit per page, only in a footer. It never replaces the Just Looking logo.
 
@@ -178,7 +178,7 @@ Shared components live in `web/src/components/` (`ui/` for shadcn primitives, `b
 
 ### HangTag
 
-- A 2px `brand-900` string of 24 to 120px, then the card: `highlight-400` or pale petrol (`brand-100`), cut top corners, an eyelet in the ground colour, padding 46px 18px 18px, width 220px.
+- A 2px `brand-900` string of 24 to 120px, then the card: `highlight-400` or pale violet (`brand-100`), cut top corners, an eyelet in the ground colour, padding 46px 18px 18px, width 220px.
 - Inside: the tenant line (header band), the product name (condensed voice, 24px), up to three attributes (14px, tabular), a 1.5px dashed rule with "Price" and the Stamp, an optional link label.
 - Used on the landing (hero rail, demo picker, how it works) and the sign-in panel. Never for product lists: those use ProductCard. At most three in one rail, alternating stock.
 - As a link the whole tag is one `<a>` named "Open the {tenant} demo", with a visible focus outline around the card.

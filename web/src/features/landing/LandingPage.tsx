@@ -1,6 +1,7 @@
 import { Link } from 'react-router'
 import { HangTag } from '@/components/brand/HangTag'
 import { Logo } from '@/components/brand/Logo'
+import { Stamp } from '@/components/brand/Stamp'
 import { cn } from '@/lib/utils'
 import { LanguageSwitcher } from './LanguageSwitcher'
 import { LandingFooter, LandingSections, TryDemoButton } from './LandingSections'
@@ -53,6 +54,13 @@ export function LandingPage() {
               {copy.hero.headlineAfter}
             </h1>
             <p className="lede text-landing-ink-muted">{copy.hero.lede}</p>
+            <p className="flex items-center gap-3 text-sm text-landing-ink">
+              {/* The name is English in both languages; the line beside it explains the pun. */}
+              <Stamp onInk className="shrink-0 text-[13px]">
+                Just looking
+              </Stamp>
+              <span>{copy.hero.pun}</span>
+            </p>
             <div className="flex flex-col items-start gap-3">
               <TryDemoButton label={copy.hero.tryDemo} />
               <p className="text-sm text-landing-ink-muted">{copy.hero.demoNote}</p>

@@ -47,14 +47,14 @@ export function HangTag({
       <span
         data-part="card"
         className={cn(
-          'tag-cut relative block rounded-m px-[18px] pt-[46px] pb-[18px] drop-shadow-[0_14px_14px_rgb(0_28_30/0.35)]',
+          'tag-cut relative block rounded-m px-[18px] pt-[46px] pb-[18px] drop-shadow-[0_14px_14px_rgb(29_12_51/0.35)]',
           tone === 'highlight' ? 'bg-highlight text-on-highlight' : 'bg-brand-100 text-brand-900',
           href && 'group-focus-visible:outline-3 group-focus-visible:outline-offset-3 group-focus-visible:outline-highlight-400',
         )}
       >
         <span
           aria-hidden="true"
-          className="absolute top-3.5 left-1/2 -ml-2 size-4 rounded-full bg-landing-ground shadow-[0_0_0_4px_rgb(0_28_30/0.18)]"
+          className="absolute top-3.5 left-1/2 -ml-2 size-4 rounded-full bg-landing-ground shadow-[0_0_0_4px_rgb(29_12_51/0.18)]"
         />
         <span className="block text-xs font-semibold tracking-[0.05em] uppercase opacity-80">{tenantLine}</span>
         <span className="mt-1.5 mb-3 block font-display text-2xl leading-none">{name}</span>

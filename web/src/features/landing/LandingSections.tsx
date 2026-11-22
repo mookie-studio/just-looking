@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 import { HangTag } from '@/components/brand/HangTag'
-import { Logo } from '@/components/brand/Logo'
 import { MookieStudioCredit } from '@/components/brand/MookieStudioCredit'
 import { Stamp } from '@/components/brand/Stamp'
 import { cn } from '@/lib/utils'
@@ -177,18 +176,21 @@ export function LandingSections({ copy }: { copy: LandingCopy }) {
 /** The landing footer: Just Looking, Sign in and the year on the left; the maker's credit on the right. */
 export function LandingFooter({ copy }: { copy: LandingCopy }) {
   return (
-    <footer className="bg-brand-950 text-landing-ink">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-8 min-[640px]:flex-row min-[640px]:items-end min-[640px]:justify-between">
-        <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Link to="/" className="rounded-s focus-visible:outline-highlight-400">
-            <Logo variant="reversed" className="h-5" />
-          </Link>
-          <Link to="/login" className="rounded-s text-sm font-semibold underline-offset-4 hover:underline focus-visible:outline-highlight-400">
+    <footer className="bg-brand-950 text-landing-ink-muted">
+      {/* As in EntryHub's footer: the maker's credit on its own row, then the product line. */}
+      <div className="mx-auto max-w-6xl px-4 pt-10 sm:px-8">
+        <div className="border-b border-white/20 pb-6">
+          <MookieStudioCredit label={copy.footer.madeBy} />
+        </div>
+      </div>
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 py-6 text-sm sm:px-8">
+        <p>{copy.footer.tagline}</p>
+        <div className="flex items-center gap-x-6">
+          <Link to="/login" className="rounded-s font-semibold text-landing-ink underline-offset-4 hover:underline focus-visible:outline-highlight-400">
             {copy.footer.signIn}
           </Link>
-          <span className="font-mono text-xs text-landing-ink-muted">© {new Date().getFullYear()}</span>
+          <span className="tabular-nums">© {new Date().getFullYear()}</span>
         </div>
-        <MookieStudioCredit label={copy.footer.madeBy} />
       </div>
     </footer>
   )

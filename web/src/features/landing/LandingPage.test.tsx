@@ -7,7 +7,7 @@ import { LANDING_LANGUAGE_KEY } from './landing-language'
 
 function renderLanding() {
   const router = createMemoryRouter([{ path: '/', Component: LandingPage }], { initialEntries: ['/'] })
-  render(<RouterProvider router={router} />)
+  return render(<RouterProvider router={router} />)
 }
 
 describe('LandingPage', () => {
@@ -59,6 +59,16 @@ describe('LandingPage', () => {
     expect(screen.getByRole('link', { name: 'Abrir la demo de Lino · ropa' })).toHaveAttribute('href', '/lino-apparel')
   })
 
+  it('explains the pun behind the name, in English and in Spanish', () => {
+    const { unmount } = renderLanding()
+    expect(screen.getByText('What you say in a shop when you only want to browse.')).toBeInTheDocument()
+    unmount()
+
+    languages = ['es-ES']
+    renderLanding()
+    expect(screen.getByText('«Solo mirando»: lo que dices en una tienda cuando solo quieres mirar.')).toBeInTheDocument()
+  })
+
   it('turns the how it works tag between what visitors see and what admins edit', async () => {
     renderLanding()
 
@@ -105,6 +115,7 @@ describe('LandingPage', () => {
     expect(within(footer).getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/login')
     expect(within(footer).getByText(`© ${new Date().getFullYear()}`)).toBeInTheDocument()
     expect(within(footer).getByText('A product by')).toBeInTheDocument()
+    expect(within(footer).getByText('Just Looking · product catalog')).toBeInTheDocument()
     expect(within(footer).getByRole('link', { name: 'mookie studio on GitHub' })).toHaveAttribute('href', 'https://github.com/mookie-studio')
   })
 

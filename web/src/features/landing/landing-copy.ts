@@ -31,6 +31,8 @@ const en = {
     lede: 'A catalog for any business: your products with photos and attributes, search and filters, and an inquiry form. Visitors browse; you answer.',
     tryDemo: 'Try the demo',
     demoNote: '3 example shops · no sign-up',
+    // The pun behind the name, shown after the "Just looking" stamp.
+    pun: 'What you say in a shop when you only want to browse.',
   },
   tag: {
     price: 'Price',
@@ -105,6 +107,7 @@ const en = {
   footer: {
     signIn: 'Sign in',
     madeBy: 'A product by',
+    tagline: 'Just Looking · product catalog',
   },
 }
 
@@ -129,6 +132,7 @@ const es: LandingCopy = {
     lede: 'Un catálogo para cualquier negocio: tus productos con fotos y atributos, búsqueda y filtros, y un formulario de consulta. Los visitantes miran; tú respondes.',
     tryDemo: 'Probar la demo',
     demoNote: '3 tiendas de ejemplo · sin registro',
+    pun: '«Solo mirando»: lo que dices en una tienda cuando solo quieres mirar.',
   },
   tag: {
     price: 'Precio',
@@ -201,6 +205,7 @@ const es: LandingCopy = {
   footer: {
     signIn: 'Entrar',
     madeBy: 'Un producto de',
+    tagline: 'Just Looking · catálogo de productos',
   },
 }
 
