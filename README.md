@@ -1,6 +1,6 @@
 # Catalog
 
-Repository: [mookie-studio/just-looking](https://github.com/mookie-studio/just-looking) (named `catalog` until 2026-11-19). Public name: **Just Looking** ([ADR 0015](./docs/adr/0015-just-looking-brand-and-design-system.md)). Design system: [DESIGN.md](./DESIGN.md).
+Repository: [mookie-studio/just-looking](https://github.com/mookie-studio/just-looking) (named `catalog` until 2026-11-19). Public name: **Just Looking** ([ADR 0015](./docs/adr/0015-just-looking-brand-and-design-system.md)). Design system: [DESIGN.md](./DESIGN.md) ([ADR 0016](./docs/adr/0016-design-system-in-entryhub-language.md)).
 
 A general-purpose, multi-tenant product catalog platform: each business (tenant) manages its products from an admin area, and its visitors browse them in a public catalog. It does not sell: no prices, cart, orders or stock.
 

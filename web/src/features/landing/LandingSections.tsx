@@ -15,9 +15,9 @@ export function TryDemoButton({ label }: { label: string }) {
   return (
     <Link
       to={DEMO_HREF}
-      className="inline-flex items-center gap-3 rounded-[6px] bg-highlight py-3 pr-6 pl-4 font-display text-lg font-extrabold text-on-highlight shadow-tag transition-transform [font-stretch:108%] hover:-translate-y-0.5 hover:-rotate-[1.5deg] focus-visible:outline-lilac-50 motion-reduce:transition-none"
+      className="inline-flex items-center gap-3 rounded-m bg-highlight py-3 pr-5 pl-4 text-base font-semibold text-on-highlight shadow-tag transition-[translate,rotate,background-color] duration-150 hover:-translate-y-0.5 hover:-rotate-[1.5deg] focus-visible:outline-highlight-400 motion-reduce:transition-none"
     >
-      <span aria-hidden="true" className="size-3 rounded-full bg-landing-ground" />
+      <span aria-hidden="true" className="size-2.5 rounded-full bg-landing-ground" />
       {label}
     </Link>
   )
@@ -26,7 +26,7 @@ export function TryDemoButton({ label }: { label: string }) {
 const sectionHeading = 'display-l text-landing-ink'
 
 /**
- * How it works: one large lilac tag. The front is what a Visitor sees, the back what an Admin edits.
+ * How it works: one large pale tag. The front is what a Visitor sees, the back what an Admin edits.
  * "Turn the tag" flips it (at most 400ms, no animation under reduced motion); the hidden side is
  * inert, so only the visible side is read and focusable.
  */
@@ -34,7 +34,7 @@ function HowItWorks({ copy }: { copy: LandingCopy }) {
   const [turned, setTurned] = useState(false)
   const t = copy.howItWorks
   const face =
-    'absolute inset-0 flex flex-col rounded-[8px] bg-lilac-100 px-7 pt-16 pb-8 text-plum-900 [backface-visibility:hidden] [clip-path:polygon(22%_0,78%_0,100%_12%,100%_100%,0_100%,0_12%)]'
+    'absolute inset-0 flex flex-col rounded-[8px] bg-brand-100 px-7 pt-16 pb-8 text-brand-900 [backface-visibility:hidden] [clip-path:polygon(22%_0,78%_0,100%_12%,100%_100%,0_100%,0_12%)]'
 
   return (
     <section aria-labelledby="how-it-works" className="flex flex-col items-center gap-8 text-center">
@@ -42,7 +42,7 @@ function HowItWorks({ copy }: { copy: LandingCopy }) {
         {t.heading}
       </h2>
       <div className="flex flex-col items-center">
-        <span aria-hidden="true" className="block h-12 w-0.5 bg-plum-900" />
+        <span aria-hidden="true" className="block h-12 w-0.5 bg-brand-900" />
         <div className="relative h-[380px] w-[300px] max-w-[calc(100vw-32px)] [perspective:1200px]">
           <div
             className={cn(
@@ -59,7 +59,7 @@ function HowItWorks({ copy }: { copy: LandingCopy }) {
         type="button"
         aria-pressed={turned}
         onClick={() => setTurned((value) => !value)}
-        className="rounded-full border-2 border-lilac-50 px-5 py-2 font-display text-base font-bold text-landing-ink transition-colors hover:bg-landing-ink/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lilac-50"
+        className="rounded-m border border-white/50 px-4 py-2.5 text-sm font-semibold text-landing-ink transition-colors hover:bg-landing-ink/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-400"
       >
         {t.turn}
       </button>
@@ -83,10 +83,10 @@ function Side({
   return (
     <div className={className} data-side={side} aria-hidden={hidden} inert={hidden}>
       <span aria-hidden="true" className="absolute top-5 left-1/2 -ml-2.5 size-5 rounded-full bg-landing-ground" />
-      <h3 className="mb-4 text-left font-mono text-xs font-semibold tracking-[0.06em] uppercase opacity-75">{title}</h3>
-      <ul className="m-0 flex list-none flex-col gap-3 p-0 text-left font-display text-lg leading-snug font-bold">
+      <h3 className="mb-4 text-left text-xs font-semibold tracking-[0.05em] uppercase opacity-80">{title}</h3>
+      <ul className="m-0 flex list-none flex-col gap-3 p-0 text-left text-base leading-snug font-semibold">
         {items.map((item) => (
-          <li key={item} className="border-b-[1.5px] border-dashed border-plum-900/30 pb-3 last:border-0">
+          <li key={item} className="border-b-[1.5px] border-dashed border-brand-900/30 pb-3 last:border-0">
             {item}
           </li>
         ))}
@@ -110,12 +110,12 @@ function AnyBusiness({ copy }: { copy: LandingCopy }) {
       </h2>
       <p className="lede text-landing-ink-muted">{t.lede}</p>
       <div className="w-full max-w-[760px]">
-        <div aria-hidden="true" className="h-0.5 w-full bg-plum-900" />
+        <div aria-hidden="true" className="h-0.5 w-full bg-brand-900" />
         <ul className="m-0 flex list-none flex-wrap justify-center gap-x-6 gap-y-2 p-0">
           {copy.demoTags.map((tag, index) => (
             <li key={tag.slug} className="w-[220px] shrink-0">
               <HangTag
-                tone={index % 2 === 0 ? 'lilac' : 'mustard'}
+                tone={index % 2 === 0 ? 'pale' : 'highlight'}
                 drop={index === 1 ? 64 : 32}
                 tenantLine={tag.tenantLine}
                 name={lines[tag.slug] ?? ''}
@@ -138,12 +138,12 @@ function NotDo({ copy }: { copy: LandingCopy }) {
   return (
     <section
       aria-labelledby="not-do"
-      className="mx-auto flex max-w-2xl flex-col items-center gap-5 rounded-l border-2 border-dashed border-lilac-50/40 px-6 py-10 text-center"
+      className="mx-auto flex max-w-2xl flex-col items-center gap-5 rounded-l border-2 border-dashed border-brand-50/40 px-6 py-10 text-center"
     >
-      <Stamp onPlum className="text-xl">
+      <Stamp onInk className="text-xl">
         {copy.tag.stamp}
       </Stamp>
-      <h2 id="not-do" className="font-display text-2xl font-extrabold [font-stretch:110%]">
+      <h2 id="not-do" className="font-display text-3xl">
         {copy.notDo.heading}
       </h2>
       <p className="lede text-landing-ink-muted">{copy.notDo.body}</p>
@@ -177,13 +177,13 @@ export function LandingSections({ copy }: { copy: LandingCopy }) {
 /** The landing footer: Just Looking, Sign in and the year on the left; the maker's credit on the right. */
 export function LandingFooter({ copy }: { copy: LandingCopy }) {
   return (
-    <footer className="bg-plum-900 text-landing-ink">
+    <footer className="bg-brand-950 text-landing-ink">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 sm:px-8 min-[640px]:flex-row min-[640px]:items-end min-[640px]:justify-between">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-          <Link to="/" className="rounded-s focus-visible:outline-lilac-50">
+          <Link to="/" className="rounded-s focus-visible:outline-highlight-400">
             <Logo variant="reversed" className="h-5" />
           </Link>
-          <Link to="/login" className="rounded-s text-sm font-semibold underline-offset-4 hover:underline focus-visible:outline-lilac-50">
+          <Link to="/login" className="rounded-s text-sm font-semibold underline-offset-4 hover:underline focus-visible:outline-highlight-400">
             {copy.footer.signIn}
           </Link>
           <span className="font-mono text-xs text-landing-ink-muted">© {new Date().getFullYear()}</span>

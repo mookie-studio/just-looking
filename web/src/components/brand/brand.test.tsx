@@ -42,9 +42,9 @@ describe('HangTag', () => {
 })
 
 describe('Logo', () => {
-  it('shows the reversed symbol file named Just Looking', () => {
-    render(<Logo kind="symbol" variant="reversed" />)
-    expect(screen.getByRole('img', { name: 'Just Looking' })).toHaveAttribute('src', '/brand/just-looking-symbol-reversed.svg')
+  it('shows the reversed mark file named Just Looking', () => {
+    render(<Logo kind="mark" variant="reversed" />)
+    expect(screen.getByRole('img', { name: 'Just Looking' })).toHaveAttribute('src', '/brand/just-looking-mark.svg')
   })
 })
 

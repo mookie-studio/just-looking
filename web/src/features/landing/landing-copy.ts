@@ -24,7 +24,7 @@ const en = {
     spanish: 'Español',
   },
   hero: {
-    // The headline is split so one word can be set in mustard.
+    // The headline is split so one word can be set on the highlighter.
     headlineBefore: 'Let them look at ',
     headlineHighlight: 'everything',
     headlineAfter: ' they want.',

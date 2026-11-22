@@ -28,7 +28,7 @@ export function LanguageSwitcher({
             aria-pressed={pressed}
             onClick={() => onChange(option.language)}
             className={
-              'rounded-s px-2 py-1 font-display text-sm font-bold text-landing-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lilac-50 ' +
+              'rounded-s px-2 py-1 text-sm font-semibold text-landing-ink transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight-400 ' +
               (pressed ? 'bg-landing-ink/15' : 'opacity-70 hover:opacity-100')
             }
           >

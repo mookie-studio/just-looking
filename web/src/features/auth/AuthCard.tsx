@@ -5,7 +5,7 @@ import { Logo } from '@/components/brand/Logo'
 import { AppLogo } from '@/components/AppLogo'
 
 /**
- * Sign-in and invitation pages: a plum brand panel (wide screens only) beside the form card.
+ * Sign-in and invitation pages: an ink brand panel (wide screens only) beside the form card.
  * The panel is decoration; every text a user needs is in the form.
  */
 export function AuthCard({ title, children }: { title: string; children: ReactNode }) {
@@ -15,11 +15,11 @@ export function AuthCard({ title, children }: { title: string; children: ReactNo
         aria-hidden="true"
         className="relative hidden flex-col justify-between overflow-hidden bg-landing-ground p-10 text-landing-ink min-[860px]:flex"
       >
-        <Logo variant="landing" className="h-8 self-start" />
+        <Logo variant="reversed" className="h-8 self-start" />
         <div className="relative self-center">
-          <span className="absolute -top-px left-1/2 h-0.5 w-72 -translate-x-1/2 bg-plum-900" />
+          <span className="absolute -top-px left-1/2 h-0.5 w-72 -translate-x-1/2 bg-brand-900" />
           <HangTag
-            tone="lilac"
+            tone="pale"
             tenantLine="Your shop · any business"
             name="Every product, its own attributes"
             attributes={[

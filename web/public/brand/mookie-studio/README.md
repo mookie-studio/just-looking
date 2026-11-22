@@ -4,7 +4,7 @@ The maker's logo, used by the `MookieStudioCredit` component ("A product by" / "
 
 | File | Use on |
 | --- | --- |
-| `wordmark-on-dark.svg` | Plum and dark grounds (the landing footer): white "mookie", `#FF5A66` "studio" |
+| `wordmark-on-dark.svg` | Ink and dark grounds (the landing footer): white "mookie", `#FF5A66` "studio" |
 | `wordmark-on-light.svg` | Light grounds: ink `#16161A` "mookie", red "studio" |
 | `mark-on-dark.svg`, `mark-on-light.svg` | The "m" alone, when the name is already next to it |
 

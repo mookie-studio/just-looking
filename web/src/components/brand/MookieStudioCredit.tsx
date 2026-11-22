@@ -28,7 +28,7 @@ export function MookieStudioCredit({
         aria-label="mookie studio on GitHub"
         className={cn(
           '-mx-[6px] -mb-[6px] rounded-m outline-offset-2 focus-visible:outline-2',
-          onLight ? 'focus-visible:outline-focus-ring' : 'focus-visible:outline-lilac-50',
+          onLight ? 'focus-visible:outline-focus-ring' : 'focus-visible:outline-highlight-400',
         )}
       >
         <img
