@@ -15,9 +15,9 @@ const files: Record<LogoKind, Record<LogoVariant, string>> = {
 }
 
 /**
- * The Just Looking logo (DESIGN.md: Logo): the shop-window mark and the name, always an image of the
- * outlined files in /brand/, never retyped. `default` for light grounds (ink tile, ink name),
- * `reversed` for the ink and dark grounds (white tile, white name). Set the height with className
+ * The Just Looking logo (DESIGN.md: Logo): the hang-tag mark and the name, always an image of the
+ * outlined files in /brand/, never retyped. `default` for light grounds (violet tile, ink name),
+ * `reversed` for the violet and dark grounds (white tile, white name). Set the height with className
  * (at least h-5 for the wordmark, h-4 for the mark).
  */
 export function Logo({

@@ -7,7 +7,7 @@ import { LANDING_LANGUAGE_KEY } from './landing-language'
 
 function renderLanding() {
   const router = createMemoryRouter([{ path: '/', Component: LandingPage }], { initialEntries: ['/'] })
-  render(<RouterProvider router={router} />)
+  return render(<RouterProvider router={router} />)
 }
 
 describe('LandingPage', () => {
@@ -57,6 +57,16 @@ describe('LandingPage', () => {
     expect(screen.getAllByRole('link', { name: 'Probar la demo' })[0]).toHaveAttribute('href', '/forja-hardware')
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Que miren todo lo que quieran.')
     expect(screen.getByRole('link', { name: 'Abrir la demo de Lino · ropa' })).toHaveAttribute('href', '/lino-apparel')
+  })
+
+  it('explains the pun behind the name, in English and in Spanish', () => {
+    const { unmount } = renderLanding()
+    expect(screen.getByText('What you say in a shop when you only want to browse.')).toBeInTheDocument()
+    unmount()
+
+    languages = ['es-ES']
+    renderLanding()
+    expect(screen.getByText('«Solo mirando»: lo que dices en una tienda cuando solo quieres mirar.')).toBeInTheDocument()
   })
 
   it('turns the how it works tag between what visitors see and what admins edit', async () => {

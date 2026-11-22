@@ -3,7 +3,7 @@
 
 /*
  * DESIGN.md: the Just Looking design system, in EntryHub's visual language (ADR 0016).
- * A cool ground, white cells ruled with grey-green lines, petrol ink for the shell and the primary
+ * A cool ground, white cells ruled with violet-grey lines, electric violet ink for the shell and the primary
  * action, sticker colours with one job each (green = published, amber = draft or warning,
  * coral = error) and highlighter yellow for what is singled out (Featured, the tag, selection).
  * One theme. The scales are the source; the semantic names below them are what screens use.
@@ -65,32 +65,32 @@
 }
 
 @theme {
-  /* Petrol ink */
-  --color-brand-25: #f0fafa;
-  --color-brand-50: #e3f5f6;
-  --color-brand-100: #ccedee;
-  --color-brand-200: #9adcdf;
-  --color-brand-300: #41c3ca;
-  --color-brand-400: #019da4;
-  --color-brand-500: #007b80;
-  --color-brand-600: #026267;
-  --color-brand-700: #014d51;
-  --color-brand-800: #003c3f;
-  --color-brand-900: #002b2d;
-  --color-brand-950: #001c1e;
+  /* Electric violet ink */
+  --color-brand-25: #f9f6fe;
+  --color-brand-50: #f3eefc;
+  --color-brand-100: #e9e1fa;
+  --color-brand-200: #d4c5f4;
+  --color-brand-300: #b99eea;
+  --color-brand-400: #9b6fdd;
+  --color-brand-500: #8042cd;
+  --color-brand-600: #6c22b7;
+  --color-brand-700: #551594;
+  --color-brand-800: #411371;
+  --color-brand-900: #2e114f;
+  --color-brand-950: #1d0c33;
 
   /* Neutrals: EntryHub's lightness steps, tinted towards the ink */
-  --color-gray-25: #f3f7f7;
-  --color-gray-50: #eaf1f2;
-  --color-gray-100: #dfe9ea;
-  --color-gray-200: #ccdddd;
-  --color-gray-300: #adc6c8;
-  --color-gray-400: #75999b;
-  --color-gray-500: #497476;
-  --color-gray-600: #2e5a5c;
-  --color-gray-700: #104346;
-  --color-gray-800: #002e30;
-  --color-gray-900: #001f21;
+  --color-gray-25: #f6f5f9;
+  --color-gray-50: #f0eff4;
+  --color-gray-100: #e8e5ee;
+  --color-gray-200: #dad6e3;
+  --color-gray-300: #c3bdd0;
+  --color-gray-400: #978ea9;
+  --color-gray-500: #706584;
+  --color-gray-600: #564c69;
+  --color-gray-700: #3f3553;
+  --color-gray-800: #2b203e;
+  --color-gray-900: #1f1232;
 
   /* Highlighter: Featured, the tag, selection */
   --color-highlight-200: #fff3a3;
@@ -109,9 +109,9 @@
   --color-error-600: #cf3a23;
   --color-error-700: #a52a17;
 
-  --shadow-tag: 0 14px 18px -10px rgb(0 31 33 / 0.35);
-  --shadow-raised: 0 1px 2px rgb(0 31 33 / 0.08), 0 2px 6px -2px rgb(0 31 33 / 0.08);
-  --shadow-float: 0 18px 32px -12px rgb(0 28 30 / 0.28), 0 4px 10px -4px rgb(0 28 30 / 0.12);
+  --shadow-tag: 0 14px 18px -10px rgb(29 12 51 / 0.35);
+  --shadow-raised: 0 1px 2px rgb(31 18 50 / 0.08), 0 2px 6px -2px rgb(31 18 50 / 0.08);
+  --shadow-float: 0 18px 32px -12px rgb(29 12 51 / 0.28), 0 4px 10px -4px rgb(29 12 51 / 0.12);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   /* DESIGN.md Motion: the hang tag sway, the brand's one signature movement. */
   --animate-tag-sway: tag-sway 5.5s ease-in-out infinite;

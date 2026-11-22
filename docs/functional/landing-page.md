@@ -6,10 +6,11 @@ The landing page presents **Just Looking** (the public name of Catalog) to peopl
 
 What a visitor sees on opening `/`, without scrolling (checked at 1366×768 and 390×844):
 
-- **Top bar**: the Just Looking logo (the reversed wordmark: the shop-window mark and the name), which links to `/`; the EN/ES [language switcher](#language-switcher); and a **Sign in** button ("Entrar" in Spanish) that links to `/login`.
+- **Top bar**: the Just Looking logo (the reversed wordmark: the hang-tag mark and the name), which links to `/`; the EN/ES [language switcher](#language-switcher); and a **Sign in** button ("Entrar" in Spanish) that links to `/login`.
 - **Headline**: "Let them look at everything they want." ("Que miren todo lo que quieran."), with one word on a highlighter-yellow band, then a short paragraph saying what Just Looking does.
+- **The name, explained**: a small "Just looking" stamp followed by "What you say in a shop when you only want to browse." (in Spanish: "«Solo mirando»: lo que dices en una tienda cuando solo quieres mirar."). The stamp keeps the English name in both languages; the line explains it.
 - **Try the demo** ("Probar la demo"): the main button, shaped like a tag. It opens the demo catalog of the Demo tenant `forja-hardware` (`/forja-hardware`). Under it, a small note: "3 example shops · no sign-up" ("3 tiendas de ejemplo · sin registro").
-- **Three hang tags** hanging from a rail, one Featured product from each Demo tenant, alternating highlighter yellow and pale petrol. Each tag shows the shop and its trade, the product name, three of its attributes and the "Just looking" stamp, and the whole tag is a link to that shop's catalog:
+- **Three hang tags** hanging from a rail, one Featured product from each Demo tenant, alternating highlighter yellow and pale violet. Each tag shows the shop and its trade, the product name, three of its attributes and the "Just looking" stamp, and the whole tag is a link to that shop's catalog:
 
 | Tag | Links to |
 | --- | --- |
@@ -19,7 +20,7 @@ What a visitor sees on opening `/`, without scrolling (checked at 1366×768 and 
 
 Rules and limits:
 
-- The page ground is always the petrol ink (`landing-ground`).
+- The page ground is always the violet ink (`landing-ground`).
 - The tag contents are fixed texts copied from the Demo dataset into `landing-copy.ts`; the landing page makes **no API calls**, so it works even when the API is down. The links only lead somewhere useful when the Demo tenants have been seeded (see [ADR 0014](../adr/0014-demo-data-seeded-through-the-api.md) and [deployment](../deployment.md)); otherwise the catalog pages show "Page not found".
 - On wide screens the text and the tags sit side by side; under 860px wide the tags go below the button. When there is not room for three full-size tags, they shrink and overlap so none is cut off; there is no horizontal scrolling down to 360px wide.
 - The tags sway gently and stop when hovered or focused; with reduced motion turned on in the system, they do not move.
@@ -29,7 +30,7 @@ Rules and limits:
 
 Scrolling down, the visitor finds, in this order (every text in the current language):
 
-1. **One tag, two sides** ("Una etiqueta, dos caras"). One large pale-petrol tag. Its front lists what a visitor of a catalog sees: photos of every product, its attributes side by side, search and filters, and an inquiry form. A **Turn the tag** button ("Dar la vuelta") flips it to the back, which lists what the business edits: products and their images, Categories and attributes, Featured products, import from a CSV file, and its logo and brand color. Pressing the button again turns it back. The button shows whether the tag is turned (`aria-pressed`), and screen readers and the keyboard only reach the side that is showing. The flip takes 0.4 seconds; with reduced motion turned on it changes side at once.
+1. **One tag, two sides** ("Una etiqueta, dos caras"). One large pale-violet tag. Its front lists what a visitor of a catalog sees: photos of every product, its attributes side by side, search and filters, and an inquiry form. A **Turn the tag** button ("Dar la vuelta") flips it to the back, which lists what the business edits: products and their images, Categories and attributes, Featured products, import from a CSV file, and its logo and brand color. Pressing the button again turns it back. The button shows whether the tag is turned (`aria-pressed`), and screen readers and the keyboard only reach the side that is showing. The flip takes 0.4 seconds; with reduced motion turned on it changes side at once.
 2. **Any business, its own attributes** ("Cualquier negocio, con sus propios atributos"). The three Demo tenants as tags on a rail, each with one line on what its catalog describes, and a **See its catalog** link ("Ver su catálogo"):
 
 | Tag | Line | Links to |
@@ -93,5 +94,6 @@ All texts live in `web/src/features/landing/landing-copy.ts`, one object per lan
 | Primary button | Try the demo | Probar la demo |
 | Stamp on the tags | Just looking | Solo mirando |
 | Headline | Let them look at everything they want. | Que miren todo lo que quieran. |
+| The name, explained (after a "Just looking" stamp in both languages) | What you say in a shop when you only want to browse. | «Solo mirando»: lo que dices en una tienda cuando solo quieres mirar. |
 
 The texts state only what Catalog does today. They never mention prices, customers, figures or features that do not exist. Product names on the demo tags are the Demo dataset's own names and are not translated; their attribute labels are.
