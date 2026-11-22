@@ -40,7 +40,7 @@ Open decisions:
 ## Brand Commitments
 
 - **Name: Just Looking** (chosen by Mookie on 2026-11-18). The pun: "just looking" is what a shopper says when browsing without buying, which is exactly the product: a catalog with no cart. "Catalog" remains the code name in the code (projects, namespaces, API, database); the GitHub repository is `mookie-studio/just-looking`.
-- Logo: the wordmark with the two "o" of "Looking" drawn as eyes (files in `web/public/brand/`). Palette plum, mustard and lilac; see `DESIGN.md`.
+- Logo: a shop window (a yellow awning over a window) on a rounded tile, followed by the name (files in `web/public/brand/`). Visual language shared with EntryHub, with a petrol ink; see `DESIGN.md` and ADR 0016.
 
 ## Evidence on Hand
 

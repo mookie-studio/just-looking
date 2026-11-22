@@ -1,15 +1,15 @@
 # Just Looking design system
 
-The single source of truth for how Just Looking looks: colours, type, space, shape, motion, the logo and the components. Every value here is exact; the SPA's tokens (`web/src/index.css`) must match it. A browsable version with live previews: https://claude.ai/artifact/B5V29B7Dvx4w8C1ikSi46V. Decision record: [ADR 0015](docs/adr/0015-just-looking-brand-and-design-system.md).
+The single source of truth for how Just Looking looks: colours, type, space, shape, motion, the logo and the components. Every value here is exact; the SPA's tokens (`web/src/index.css`) must match it. Decision records: [ADR 0015](docs/adr/0015-just-looking-brand-and-design-system.md) (name and brand) and [ADR 0016](docs/adr/0016-design-system-in-entryhub-language.md) (this visual language).
 
 ## The idea
 
-"Just looking" is what a shopper says when browsing without buying, and the product has no prices, cart or checkout. The brand plays that line straight: product data printed on card-stock **hang tags** hanging from a string, with the price covered by a rubber **stamp** that says "Just looking" ("Solo mirando" in Spanish).
+"Just looking" is what a shopper says when browsing without buying, and the product has no prices, cart or checkout. Its interface is a sibling of mookie studio's EntryHub: dense but calm, flat white sheets ruled with hairlines on a cool ground, one family in two voices, one saturated ink (petrol) for the shell and the action, and sticker colours that each keep one job. Highlighter yellow marks what is singled out. The brand's own shapes are the **shop window** of the logo and the **hang tag** whose price is covered by a stamp that says "Just looking" ("Solo mirando").
 
 ## Where it applies
 
-- **Landing page** (`/`): the full brand. Plum `landing-ground` in both themes, mustard and lilac HangTags, the plum-mustard wordmark, `display-xl` headline, the tag Button for "Try the demo". English and Spanish.
-- **Sign-in, admin and platform** (`/login`, `/accept-invite`, `/admin`, `/platform`): the app theme, light and dark. `surface` grounds, `ink` text, `accent` for the one primary action, StatusBadges, Fields. The wordmark sits in the header; the brand shows in details (the Stamp on the 404 page, mustard for Featured, a decorative tag on the sign-in panel), never as large colour fields.
+- **Landing page** (`/`): the full brand. `landing-ground` (petrol) ground, highlighter and pale-petrol HangTags, the reversed wordmark, the `display-xl` headline with its highlighted word, the tag button for "Try the demo". English and Spanish.
+- **Sign-in, admin and platform** (`/login`, `/accept-invite`, `/admin`, `/platform`): `surface` ground, white sheets, `ink` text, one `accent` primary action per view, StatusBadges, Fields. The wordmark sits in the white top bar; the brand shows in details (a hang tag on the sign-in panel, the empty window in empty states, yellow for Featured, the Stamp on the 404 page), never as large colour fields.
 - **A Tenant's public catalog** (`/{tenantSlug}`): the Tenant leads. Its Logo replaces ours in the header; its Brand color, when set, replaces `accent` and `focus-ring` for its header and buttons, with black or white text by contrast. Our neutrals, type and components stay. Just Looking appears only as a footer link "Made with Just Looking".
 
 ## Content
@@ -17,162 +17,139 @@ The single source of truth for how Just Looking looks: colours, type, space, sha
 - Write plainly: short sentences, active voice. Controls name their action ("Publish", "Export CSV", "Try the demo"); errors name the problem and the fix.
 - Use the glossary terms (Product, Category, Attribute, Inquiry, Tenant profile). Never "item", "listing" or "customer".
 - Never show or imply a price, cart, order or stock. Never invent customers, figures or testimonials.
-- No emoji. Codes (SKU, slugs, ids) in the `data` style.
+- No emoji. Codes (SKU, slugs, ids) use `font-mono`, which is Archivo in tabular figures.
 
 ## Colour
 
-Two themes for the app, Light and Dark. The landing commits to plum in both. Aliases in braces point to another token.
+One theme. The scales are the source (`--color-brand-*`, `--color-gray-*`, `--color-highlight-*` and the sticker scales in `index.css`); screens use the semantic tokens of the second table.
 
-| Token | Light | Dark | Usage |
-| --- | --- | --- | --- |
-| `plum-900` | `#25122f` | `#25122f` | Deepest plum. Ink on light grounds and on mustard; the landing's tag string. |
-| `plum-700` | `#3b1f4a` | `#3b1f4a` | Brand plum. The landing ground and the app icon; primary button fill in the light theme. |
-| `plum-500` | `#7a3e96` | `#7a3e96` | Mid plum. Focus ring in the light theme; links on light grounds. |
-| `mustard-400` | `#f2b134` | `#f2b134` | Brand mustard. Hang tags, the highlight word, the primary button on plum grounds and in the dark theme. Never text on light grounds. |
-| `lilac-100` | `#eadcf5` | `#eadcf5` | Lilac card stock. Secondary hang tags and selected rows on light grounds. |
-| `lilac-50` | `#f7f0fb` | `#f7f0fb` | Near-white lilac. Text and the reversed logo on plum grounds. |
-| `surface` | `#fbf8fd` | `#1a0f21` | Page background of app screens (admin, platform, public catalog). |
-| `surface-raised` | `#ffffff` | `#24162d` | Panels, cards, menus and inputs that sit on surface. |
-| `surface-sunken` | `#f2ebf7` | `#140a1a` | Table headers, wells, the code/SKU chip ground. |
-| `ink` | `#25122f` | `#f7f0fb` | Body text and headings on surface, surface-raised and surface-sunken. |
-| `ink-muted` | `#5f4d6b` | `#c2b0cf` | Secondary text, help text, placeholders, on surface, surface-raised and surface-sunken. |
-| `border` | `#e2d6ea` | `#3a2a45` | Hairlines between rows and around panels (decorative, carries no meaning). |
-| `border-strong` | `#8c7a99` | `#7d6a8b` | Input and control borders; meets 3:1 on surface and surface-raised. |
-| `accent` | `{plum-700}` | `{mustard-400}` | Primary action fill (Button primary, active nav). Pair with on-accent. |
-| `on-accent` | `#ffffff` | `{plum-900}` | Text and icons on accent. |
-| `accent-hover` | `#2e1839` | `#f5c25e` | accent while hovered or pressed. |
-| `highlight` | `{mustard-400}` | `{mustard-400}` | Hang tags, the stamp ground and emphasis fills; never body text colour on light grounds. Pair with on-highlight. |
-| `on-highlight` | `{plum-900}` | `{plum-900}` | Text on highlight. |
-| `link` | `{plum-500}` | `#d9b8ee` | Inline links on surface and surface-raised. |
-| `focus-ring` | `{plum-500}` | `{mustard-400}` | Solid 2px focus ring, 2px offset, on every interactive element. |
-| `success` | `#1f6b45` | `#7fd6a4` | Published status, success messages; text on surface and surface-raised. |
-| `success-soft` | `#ddf2e6` | `#173a28` | Ground of the Published badge; success text reads on it. |
-| `warning` | `#8a5300` | `#f2b134` | Warnings and the Draft badge text. |
-| `warning-soft` | `#fbeccc` | `#3d2c0c` | Ground of the Draft badge. |
-| `danger` | `#b3261e` | `#ff8f85` | Errors, destructive actions, invalid inputs. |
-| `danger-soft` | `#fbe3e1` | `#43181a` | Ground of error alerts. |
-| `neutral-soft` | `#ece6f0` | `#2e2338` | Ground of the Archived and Handled badges; ink-muted reads on it. |
-| `landing-ground` | `{plum-700}` | `{plum-700}` | The landing page ground in both themes: the landing commits to plum. |
-| `landing-ink` | `{lilac-50}` | `{lilac-50}` | Text on landing-ground. |
-| `landing-ink-muted` | `#d3c2e0` | `#d3c2e0` | Secondary text on landing-ground. |
+### Scales
+
+| Scale | Values | Notes |
+| --- | --- | --- |
+| `brand` (petrol ink) | 25 `#f0fafa` · 50 `#e3f5f6` · 100 `#ccedee` · 200 `#9adcdf` · 300 `#41c3ca` · 400 `#019da4` · 500 `#007b80` · 600 `#026267` · 700 `#014d51` · 800 `#003c3f` · 900 `#002b2d` · 950 `#001c1e` | EntryHub's lightness steps at the petrol hue. 600 is the action, 700 the shell, 950 the deep ink. |
+| `gray` | 25 `#f3f7f7` · 50 `#eaf1f2` · 100 `#dfe9ea` · 200 `#ccdddd` · 300 `#adc6c8` · 400 `#75999b` · 500 `#497476` · 600 `#2e5a5c` · 700 `#104346` · 800 `#002e30` · 900 `#001f21` | Neutrals tinted towards the ink. 400 is darkened so field borders meet 3:1. |
+| `highlight` | 200 `#fff3a3` · 400 `#ffe53d` | Highlighter yellow. |
+| `success` | 50 `#ddf5e8` · 500 `#17a865` · 700 `#0a6a3f` | Sticker: Published, success. |
+| `warning` | 50 `#fff0d2` · 500 `#f39a0b` · 700 `#8a4a00` | Sticker: Draft, warnings. |
+| `error` | 50 `#fde6e1` · 300 `#f6a495` · 500 `#f0533b` · 600 `#cf3a23` · 700 `#a52a17` | Sticker: errors and destructive actions. |
+
+### Semantic tokens
+
+| Token | Value | Usage |
+| --- | --- | --- |
+| `surface` | `{gray-25}` | Page background of app screens (admin, platform, public catalog). |
+| `surface-raised` | `#ffffff` | Panels, cards, menus, inputs and the top bar. |
+| `surface-sunken` | `{gray-50}` | Table headers, wells, image cells, the code chip ground. |
+| `ink` | `{gray-900}` | Body text and headings on the three surfaces. |
+| `ink-muted` | `{gray-600}` | Secondary text, help text, attribute names. |
+| `border` | `{gray-200}` | Hairlines between rows and around panels (decorative). |
+| `border-strong` | `{gray-400}` | Input and control borders; 3:1 on white. |
+| `accent` | `{brand-600}` | Primary action fill. Pair with `on-accent`. |
+| `on-accent` | `#ffffff` | Text and icons on `accent`. |
+| `accent-hover` | `{brand-700}` | `accent` while hovered (`brand-800` pressed). |
+| `highlight` | `{highlight-400}` | Featured, hang tags, the stamp ground, the logo's awning, selection, focus on ink. Pair with `on-highlight`. Never text. |
+| `on-highlight` | `{brand-950}` | Text on `highlight`. |
+| `link` | `{brand-600}` | Inline links on white and `surface`. |
+| `focus-ring` | `{brand-600}` | Solid 2px focus ring, 2px offset, on light surfaces. On ink grounds the ring is `highlight-400`. |
+| `success`, `success-soft` | `{success-700}`, `{success-50}` | Published badge text and ground; success messages. |
+| `warning`, `warning-soft` | `{warning-700}`, `{warning-50}` | Draft badge, warnings. |
+| `danger`, `danger-soft` | `{error-700}`, `{error-50}` | Errors, invalid inputs, error alerts. Destructive buttons fill `error-600`. |
+| `neutral-soft` | `{gray-100}` | Ground of the Archived and Handled badges. |
+| `landing-ground` | `{brand-700}` | The landing page and the sign-in panel ground. |
+| `landing-ink`, `landing-ink-muted` | `#ffffff`, `{brand-100}` | Text on `landing-ground`. |
 
 Rules:
 
-- `ink` on `surface`, `surface-raised` and `surface-sunken`; `ink-muted` for secondary text on the same grounds.
-- `accent` + `on-accent` for primary actions only: plum in light, mustard in dark.
-- `highlight` (mustard) + `on-highlight` for tags, Featured and emphasis fills. Mustard is never text on light grounds.
-- Statuses always pair colour with a word and a dot shape: `success` Published, `warning` Draft, neutral Archived and Handled, lilac Open, mustard Featured.
-- Focus ring: solid 2px `focus-ring`, 2px offset, on every interactive element.
+- **The Sticker Job Rule.** Each sticker colour has one job: green is Published or a success, amber is Draft or a warning, coral is an error or a destructive action. Open is pale petrol (`brand-50`, text `brand-800`); Archived and Handled are gray with a hollow dot; Featured is solid `highlight-400`. A state is the 500-shade dot on its tint with dark text, always with its word; never 500-shade text on white.
+- **The Highlighter Rule.** Yellow means "singled out" (Featured, the tag, the logo's awning, the landing's highlighted word) and selection. It is never a generic accent, a hover colour or text. The landing alone spends it on its primary action.
+- **The White Cell Rule.** On an ink ground, the current place is a white cell with `brand-900` text, never a yellow one.
+- **The Signature Rule.** The mookie studio wordmark (its red `#E0202F`) appears once per surface; its red is never an interface colour.
 
 ### Contrast (WCAG 2)
 
-| Pair | Where | Light | Dark |
-| --- | --- | --- | --- |
-| `ink` on `surface` | Body text | 16.5:1 | 16.6:1 |
-| `ink-muted` on `surface` | Secondary text | 7.2:1 | 9.2:1 |
-| `ink-muted` on `surface-raised` | Secondary text on panels | 7.6:1 | 8.5:1 |
-| `ink-muted` on `surface-sunken` | Secondary text in wells | 6.5:1 | 9.6:1 |
-| `on-accent` on `accent` | Primary button | 14.2:1 | 9.2:1 |
-| `on-highlight` on `highlight` | Text on tags and Featured | 9.2:1 | 9.2:1 |
-| `link` on `surface` | Links | 6.7:1 | 10.6:1 |
-| `success` on `success-soft` | Published badge | 5.5:1 | 7.2:1 |
-| `warning` on `warning-soft` | Draft badge | 5.4:1 | 7.1:1 |
-| `danger` on `surface` | Errors | 6.2:1 | 8.4:1 |
-| `danger` on `danger-soft` | Error alert | 5.3:1 | 6.9:1 |
-| `ink-muted` on `neutral-soft` | Archived and Handled badges | 6.2:1 | 7.4:1 |
-| `landing-ink` on `landing-ground` | Landing text | 12.7:1 | 12.7:1 |
-| `landing-ink-muted` on `landing-ground` | Landing secondary text | 8.5:1 | 8.5:1 |
-| `mustard-400` on `plum-700` | Mustard word and stamp on the landing | 7.5:1 | 7.5:1 |
-| `focus-ring` on `surface` | Focus ring (needs 3:1) | 6.7:1 | 9.8:1 |
-| `border-strong` on `surface` | Control borders (needs 3:1) | 3.7:1 | 3.8:1 |
+| Pair | Ratio |
+| --- | --- |
+| `ink` on white / on `surface` | 17.2:1 / 16.2:1 |
+| `ink-muted` on white / on `surface` | 7.7:1 / 7.1:1 |
+| `on-accent` on `accent` | 7.1:1 |
+| `on-highlight` on `highlight` | 14.0:1 |
+| `link` on white | 7.1:1 |
+| `success` on `success-soft` | 5.8:1 |
+| `warning` on `warning-soft` | 6.1:1 |
+| `danger` on white / on `danger-soft` | 7.1:1 / 6.0:1 |
+| White on `error-600` (destructive button) | 4.9:1 |
+| `gray-700` on `neutral-soft` | 8.9:1 |
+| `landing-ink` / `landing-ink-muted` on `landing-ground` | 9.6:1 / 7.8:1 |
+| `highlight-400` on `landing-ground` (focus ring, stamp) | 7.6:1 |
+| `border-strong` on white (needs 3:1) | 3.1:1 |
+| `focus-ring` on white (needs 3:1) | 7.1:1 |
 
-Text needs 4.5:1; focus rings, control borders and meaningful marks need 3:1. Every pair above passes in both themes.
+Text needs 4.5:1; focus rings, control borders and meaningful marks need 3:1. Every pair above passes.
 
 ## Type
 
-Archivo for everything, using its width axis (`font-stretch`); Martian Mono only for data. Both from Google Fonts: `Archivo:wdth,wght@62..125,400..900` and `Martian+Mono:wght@400;600`, `display=swap`.
+One family, **Archivo** (Google Fonts, `Archivo:wdth,wght@62..125,400..900`, `display=swap`), in two voices. No second family.
 
-| Style | Family | Size | Line height | Weight | Tracking | Usage |
-| --- | --- | --- | --- | --- | --- | --- |
-| `display-xl` | Archivo | 88px | 0.92 | 900 | -0.035em | Landing hero headline only. Set with font-stretch 125%. One per page. |
-| `display-l` | Archivo | 56px | 0.95 | 900 | -0.03em | Landing section headings. font-stretch 120%. |
-| `display-m` | Archivo | 36px | 1.0 | 800 | -0.02em | Page titles in the app, product name on the product page. font-stretch 110%. |
-| `heading` | Archivo | 22px | 1.2 | 700 | 0 | Panel and section headings in the app. |
-| `subheading` | Archivo | 17px | 1.35 | 700 | 0 | Form groups, card titles, tag names. |
-| `lede` | Archivo | 19px | 1.5 | 400 | 0 | Landing intro paragraphs; max 46ch. |
-| `body` | Archivo | 16px | 1.55 | 400 | 0 | Default text everywhere; max 70ch. |
-| `body-strong` | Archivo | 16px | 1.55 | 600 | 0 | Emphasis inside body, button labels. |
-| `small` | Archivo | 14px | 1.45 | 400 | 0 | Help text, table cells in dense lists, captions. |
-| `data` | Martian Mono | 13px | 1.4 | 400 | 0 | SKUs, slugs, attribute values on tags, ids. Only for data, never for prose. |
-| `data-label` | Martian Mono | 11px | 1.3 | 600 | 0.06em | Uppercase tenant line on hang tags. |
-| `stamp` | Archivo | 15px | 1.1 | 900 | 0.04em | The Stamp component only. font-stretch 75%. |
+- **Condensed voice** (`font-display`, and the `display-*` utilities): weight 750 at `font-stretch: 78%`, letter-spacing -0.005em. Titles, product names on hang tags, big numerals and the Stamp. Never a paragraph, a button or a label.
+- **Text voice**: Archivo at normal width for everything read at length and for every control.
 
-- Widths: `display-xl` at `font-stretch: 125%`, `display-l` 120%, `display-m` 110%, buttons 108%, `stamp` 75%; text styles at 100%.
-- On phones `display-xl` scales down to about 44px and `display-l` to about 34px (`clamp()`).
-- Body measure at most 70ch, `lede` at most 46ch. Headings use `text-wrap: balance`. More space above a heading than below it.
+| Style | Size | Line height | Weight | Usage |
+| --- | --- | --- | --- | --- |
+| `display-xl` | `clamp(3rem, 9vw, 6rem)` | 0.95 | 750, 78% | Landing headline only. |
+| `display-l` | `clamp(2.25rem, 5vw, 3rem)` | 1 | 750, 78% | Landing section titles. |
+| `display-m` (headline) | 36px (30px below 640px) | 1.25 | 750, 78% | The one page title of each app screen; the product name on the product page. |
+| title | 18px (20px in dialogs) | 1.55 | 750, 78% | Section headings inside a page. |
+| `lede` | 18px | 1.5 | 400 | Landing paragraphs; max 46ch. |
+| body | 16px | 1.5 | 400 | Default text; descriptions max 65ch. |
+| small | 14px | 1.43 | 400 | Help text, metadata, table cells. |
+| label | 14px | 1.43 | 600 | Buttons, field labels, navigation. |
+| sticker | 12px | 1.33 | 600 | Badge text. |
+| header band | 12px | 1.33 | 600, uppercase, 0.05em | The tenant line on tags, column headers, "A product by". Never a caption above a heading. |
+
+- Every time, date, count and code uses tabular figures (`font-mono` and `tabular-nums` do this; form controls too).
+- Headings use `text-wrap: balance`.
 
 ## Space, shape, depth
 
-| Spacing | Value | Usage |
-| --- | --- | --- |
-| `space-1` | 4px | Icon-to-label gaps, chip padding. |
-| `space-2` | 8px | Gaps inside controls and between tight items. |
-| `space-3` | 12px | Input padding, table cell padding. |
-| `space-4` | 16px | Panel padding on phones, gaps between form fields, minimum side gutter. |
-| `space-6` | 24px | Panel padding, gaps between cards. |
-| `space-8` | 32px | Between groups of a form or page sections in the app. |
-| `space-12` | 48px | Above section headings. |
-| `space-18` | 72px | Between landing sections. |
-
-| Radius | Value | Usage |
-| --- | --- | --- |
-| `radius-s` | 4px | Badges, the Stamp, SKU chips. |
-| `radius-m` | 8px | Buttons, inputs, menus. |
-| `radius-l` | 12px | Panels and product cards. |
-| `radius-pill` | 999px | The Sign in pill on the landing, filter chips. |
-
-| Shadow | Light | Dark | Usage |
-| --- | --- | --- | --- |
-| `shadow-tag` | `0 18px 30px -12px rgba(37,18,47,0.45)` | `0 18px 30px -12px rgba(0,0,0,0.6)` | Hang tags and anything that hangs or floats over a ground. |
-| `shadow-raised` | `0 1px 2px rgba(37,18,47,0.08), 0 4px 12px -4px rgba(37,18,47,0.12)` | `0 1px 2px rgba(0,0,0,0.4), 0 4px 12px -4px rgba(0,0,0,0.5)` | Menus, popovers, the sticky bulk-action bar. |
-
-- Hang tags keep their cut top corners (`clip-path: polygon(22% 0, 78% 0, 100% 14%, 100% 100%, 0 100%, 0 14%)`) instead of a radius.
-- Panels use a `border` hairline, not a shadow.
+- Steps of 4px (Tailwind's spacing). Fields stack at 16px with 6px between label, control and hint; list rows at 12px; card grids at 16px; 32px below a page header.
+- Corners: `radius-m` (0.5rem) for buttons, fields, menus and thumbnails; `radius-l` (0.625rem) for cards, panels, alerts and dialogs; `radius-s` (0.25rem) for the stamp and code chips; fully round for stickers and filter chips. Borders are 1px.
+- **The Ruled Sheet Rule.** Flat by default: a surface at rest has a border, not a shadow. `shadow-raised` lifts filled buttons, and cards and rows on hover (with a `brand-300` border; cards also rise 2px). `shadow-float` is for toasts and dialogs. `shadow-tag` is for what hangs (the tag button). Never stack cards in cards.
+- The **hang tag** keeps its cut top corners (`tag-cut`: `clip-path: polygon(22% 0, 78% 0, 100% 14%, 100% 100%, 0 100%, 0 14%)`), an eyelet and a 2px `brand-900` string.
 
 ## Motion
 
-- One signature movement: hang tags sway slowly (5 to 6 s, ease-in-out, ±2.5deg around the top of the string) and stop on hover and focus.
-- Everything else: ease-out transitions of 150 to 300 ms on hover and press; the landing's tag flip at most 400 ms.
-- Under `prefers-reduced-motion: reduce` nothing sways or flips with animation. Nothing animates in from invisible.
+- One signature movement: hang tags sway slowly (5.5s, ease-in-out, ±2.5deg around the top of the string) and stop on hover and focus.
+- Everything else: 150ms changes of colour, border or shadow (200ms for dialogs); a pressed button moves 1px down; the tag button lifts 2px and tilts -1.5deg on hover; the landing's tag flip at most 400ms.
+- Under `prefers-reduced-motion: reduce` nothing sways or animates. Nothing animates in from invisible.
 
 ## Iconography
 
-- Lucide icons (`lucide-react`, already used through shadcn/ui), 16 or 20px, 1.75px stroke, `currentColor`. No emoji or Unicode glyphs as icons.
-- The brand symbol (the two eyes) is for brand moments only: favicon, empty states.
+- Lucide icons (`lucide-react`), 16 or 20px, stroke 1.6, `currentColor`. Decorative: a text label carries the meaning. No emoji.
+- Alerts use a 10px sticker dot in place of an icon.
+- Empty states show the drawn empty window (ruled `gray-300` panes, one `highlight-400` dot), not the logo.
 
 ## Logo
 
-The wordmark is Archivo at weight 900, semi-expanded, with the two "o" of "Looking" drawn as eyes glancing sideways. The symbol is the two eyes alone. Files in `web/public/brand/`, single-ink outlined SVGs (no font needed):
+The mark is a **shop window**: a highlighter-yellow scalloped awning over a window with one thing on display, drawn with a 2px line on a 32px rounded tile (a sibling of EntryHub's planner-sheet mark). The wordmark is the mark followed by "Just Looking" in the condensed voice, converted to outlines. Files in `web/public/brand/`:
 
-| File | Ink | Use on |
+| File | Look | Use on |
 | --- | --- | --- |
-| `just-looking-wordmark.svg` | `#25122f` | Light grounds: surface, surface-raised, lilac, mustard |
-| `just-looking-wordmark-reversed.svg` | `#f7f0fb` | Plum and dark grounds |
-| `just-looking-wordmark-plum-mustard.svg` | `#f7f0fb`, pupils `#f2b134` | `landing-ground` only |
-| `just-looking-symbol.svg` | `#25122f` | Small spaces on light grounds |
-| `just-looking-symbol-reversed.svg` | `#f7f0fb` | Small spaces on dark grounds |
-| `just-looking-app-icon.svg` | plum square, lilac eyes, mustard pupils | Favicon, app icon, social avatar |
+| `just-looking-wordmark.svg` | `brand-700` tile, white lines, name `gray-900` | Light grounds: white, `surface`, the top bar |
+| `just-looking-wordmark-reversed.svg` | White tile, `brand-800` lines, white name | `landing-ground` and dark grounds |
+| `just-looking-mark-ink.svg` | The ink tile alone | Favicon, app icon, social avatar, small spaces on light grounds |
+| `just-looking-mark.svg` | The white tile alone | Small spaces on ink grounds |
 
-- Always an `<img>` of these files with `alt="Just Looking"`; never retype the wordmark in a font or recolour it.
-- Minimum height 20px (wordmark), 16px (symbol). Clear space on every side: the height of one eye.
+- Always an `<img>` of these files with `alt="Just Looking"` (or `alt=""` when the text beside it already names Just Looking); never retype, recolour or redraw.
+- Minimum height 20px (wordmark), 16px (mark). Clear space: a quarter of the tile on every side.
 
 ## mookie studio credit
 
-Just Looking is a product by mookie studio. The maker's credit sits in the landing footer, on the right of its `plum-900` band (stacked below the rest on phones): the label "A product by" (Spanish "Un producto de"), 12px 600 uppercase, 0.06em, `landing-ink-muted`, above the mookie studio wordmark.
+Just Looking is a product by mookie studio. The maker's credit sits in the landing footer, on the right of its `brand-950` band (stacked below the rest on phones): the label "A product by" ("Un producto de") in the header-band style, `landing-ink-muted`, above the mookie studio wordmark.
 
 - Component `MookieStudioCredit` in `web/src/components/brand/`; files in `web/public/brand/mookie-studio/` (see its README), copied unchanged from mookie studio's logo pack.
-- `wordmark-on-dark.svg` on plum and dark grounds, `wordmark-on-light.svg` (prop `onLight`) on light grounds. Never recoloured, redrawn or cropped; its own colours (red `#E0202F`) are the only place that red appears.
-- Shown 64px high (the file includes its clear space, so the red mark is about 52px). Keep at least 24px between the credit and any other footer item.
+- `wordmark-on-dark.svg` on ink and dark grounds, `wordmark-on-light.svg` (prop `onLight`) on light grounds. Never recoloured, redrawn or cropped.
+- Shown 64px high. Keep at least 24px between the credit and any other footer item.
 - The wordmark links to mookie studio on GitHub (`https://github.com/mookie-studio`), in a new tab, with the accessible name "mookie studio on GitHub" and a visible focus outline.
 - One credit per page, only in a footer. It never replaces the Just Looking logo.
 
@@ -182,36 +159,40 @@ Shared components live in `web/src/components/` (`ui/` for shadcn primitives, `b
 
 ### Button
 
-- `default` (primary): `accent` fill, `on-accent` text, `accent-hover` on hover. One per view.
-- `outline` (secondary): transparent, 2px `border-strong`, `ink` text.
-- `ghost`: toolbar and row actions. `destructive`: `danger`, always behind a confirmation panel.
-- Tag button (landing only, on `landing-ground`): `highlight` fill, `on-highlight` text, an eyelet dot at the left, `shadow-tag`; tilts -1.5deg and lifts 2px on hover. Used for "Try the demo".
-- Archivo 800 at 108%, 16px, padding 12px 20px (`sm`: 14px, 8px 14px), `radius-m`. Disabled: 45% opacity, `not-allowed` cursor.
+- `default` (primary): `brand-600` fill, white text, `shadow-raised`; `brand-700` on hover, `brand-800` pressed. One per view.
+- `outline` (secondary): white, 1px `gray-300` border, `gray-800` text; hover `brand-400` border on `brand-25` with `brand-800` text.
+- `ghost`: toolbar and row actions; hover `gray-100`. `destructive`: `error-600`, always behind a confirmation.
+- Tag button (landing only, on `landing-ground`): `highlight` fill, `on-highlight` text, an eyelet dot at the left, `shadow-tag`; tilts -1.5deg and lifts 2px on hover; focus ring `highlight-400`. Used for "Try the demo".
+- Label style (14px, 600), padding 10px 16px (`sm`: 6px 12px), `radius-m`, never wrapping. Focus: 2px `focus-ring`, 2px offset. Disabled: 50% opacity, `not-allowed` cursor.
 
 ### Field
 
-- Label 14px 600 `ink`; control on `surface-raised`, 1.5px `border-strong`, `radius-m`, padding 10px 12px; placeholder `ink-muted` with an example, never the label.
-- Help text 14px `ink-muted`; error 14px 600 `danger`, linked with `aria-describedby`, and `aria-invalid="true"` turns the border `danger`.
-- SKU, slug and other codes use the mono variant (Martian Mono 14px).
+- Label 14px 600 `gray-800`; control white, 1px `border-strong`, `radius-m`; hover `gray-500` border; focus border and 2px outline in `focus-ring`; placeholder `gray-500` with an example, never the label; tabular figures.
+- Help text 14px `ink-muted`; error 14px 600 `danger`, linked with `aria-describedby`, and `aria-invalid="true"` turns the border `error-600`. Disabled on `gray-50`.
+- SKU, slug and other codes use the mono variant (Archivo, tabular, slightly tracked).
 
 ### StatusBadge
 
-- 13px 600, padding 5px 9px, `radius-s`, a 7px dot before the word.
-- Published: `success` on `success-soft`. Draft: `warning` on `warning-soft`. Archived, Handled: `ink-muted` on `neutral-soft`, hollow dot. Open: `plum-900` on `lilac-100`. Featured: `on-highlight` on `highlight`.
+- A sticker: fully round, padding 2px 10px 2px 8px, 12px 600, a 6px dot before the word.
+- Published: `success-700` on `success-50`, `success-500` dot. Draft: `warning-700` on `warning-50`, `warning-500` dot. Archived, Handled: `gray-700` on `gray-100`, hollow dot. Open: `brand-800` on `brand-50`, `brand-500` dot. Featured: `brand-950` on `highlight-400`, `brand-950` dot.
 
 ### HangTag
 
-- A 2px `plum-900` string of 24 to 120px, then the card: `highlight` (mustard) or `lilac-100`, cut top corners, an eyelet hole in the ground colour, padding 46px 18px 18px, width 220px.
-- Inside: tenant line (Martian Mono 11px 600 uppercase, 0.06em), product name (Archivo 800 20px), up to three attributes (Martian Mono 11px), a 1.5px dashed rule with "Price" and the Stamp, optional link label.
-- Used on the landing (hero rail, demo picker, how it works) and the sign-in panel. Never for product lists: those use ProductCard. At most three in one rail, alternating colours.
+- A 2px `brand-900` string of 24 to 120px, then the card: `highlight-400` or pale petrol (`brand-100`), cut top corners, an eyelet in the ground colour, padding 46px 18px 18px, width 220px.
+- Inside: the tenant line (header band), the product name (condensed voice, 24px), up to three attributes (14px, tabular), a 1.5px dashed rule with "Price" and the Stamp, an optional link label.
+- Used on the landing (hero rail, demo picker, how it works) and the sign-in panel. Never for product lists: those use ProductCard. At most three in one rail, alternating stock.
 - As a link the whole tag is one `<a>` named "Open the {tenant} demo", with a visible focus outline around the card.
 
 ### Stamp
 
-- Archivo 900 at 75%, 15px, uppercase, 0.04em, 2.5px border in `currentColor`, `radius-s`, padding 2px 8px, rotated -6deg.
-- Ink `plum-700` on mustard and lilac; `mustard-400` on plum. At most one per tag or card. Never a status badge.
+- The condensed voice at 15px, uppercase, 0.04em, 2.5px border in `currentColor`, `radius-s`, padding 2px 8px, rotated -6deg.
+- Ink `brand-700` on the highlighter and pale tags; `highlight-400` on ink grounds (`onInk`). At most one per tag or card. Never a status badge.
 
 ### ProductCard
 
-- `surface-raised`, 1px `border`, `radius-l`; image 4:3 on `surface-sunken` ("No image" when there is none); body padding `space-4`: name 17px 700, SKU in `data` `ink-muted`, up to two attributes 14px `ink-muted`, Featured badge.
-- Hover: `shadow-raised` and a 2px lift. No price, ever.
+- `surface-raised`, 1px `border`, `radius-l`; image 4:3 on `surface-sunken` ("No image" when there is none); body padding 16px: name 16px 600, SKU in `font-mono` `ink-muted`, up to two attributes 14px, the Featured badge.
+- Hover: a `brand-300` border, `shadow-raised` and a 2px lift. No price, ever.
+
+### EmptyState
+
+- A dashed `gray-300` outline on translucent white, `radius-l`, centred: the drawn empty window, a title, one sentence on what will appear and, when there is one, the action that adds the first item.

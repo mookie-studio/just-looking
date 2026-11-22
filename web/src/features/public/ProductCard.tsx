@@ -12,7 +12,7 @@ export function ProductCard({ tenantSlug, product }: { tenantSlug: string; produ
   return (
     <Link
       to={`/${tenantSlug}/p/${product.slug}`}
-      className="group grid h-full grid-rows-[auto_1fr] overflow-hidden rounded-l border border-border bg-surface-raised text-ink transition-[box-shadow,translate] duration-300 ease-out hover:shadow-raised motion-safe:hover:-translate-y-0.5"
+      className="group grid h-full grid-rows-[auto_1fr] overflow-hidden rounded-l border border-border bg-surface-raised text-ink transition-[box-shadow,translate] duration-300 ease-out hover:border-brand-300 hover:shadow-raised motion-safe:hover:-translate-y-0.5"
     >
       <ProductImage
         src={product.mainImageUrl}
@@ -20,7 +20,7 @@ export function ProductCard({ tenantSlug, product }: { tenantSlug: string; produ
         className="aspect-[4/3] rounded-none border-0 bg-surface-sunken"
       />
       <span className="grid content-start gap-1.5 p-4">
-        <span className="text-[17px] leading-[1.3] font-bold group-hover:underline">{product.name}</span>
+        <span className="text-base leading-snug font-semibold group-hover:underline">{product.name}</span>
         {product.isFeatured && <FeaturedBadge className="justify-self-start" />}
       </span>
     </Link>

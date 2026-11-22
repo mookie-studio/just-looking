@@ -10,9 +10,9 @@ export { DEMO_HREF } from './LandingSections'
 
 // Each tag hangs from the rail at its own drop (DESIGN.md: HangTag, 24 to 120px), alternating tones.
 const tagLayout = [
-  { tone: 'mustard', drop: 40 },
-  { tone: 'lilac', drop: 96 },
-  { tone: 'mustard', drop: 60 },
+  { tone: 'highlight', drop: 40 },
+  { tone: 'pale', drop: 96 },
+  { tone: 'highlight', drop: 60 },
 ] as const
 
 /**
@@ -30,14 +30,14 @@ export function LandingPage() {
       <meta property="og:description" content={copy.meta.description} />
 
       <header className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-5 sm:px-8">
-        <Link to="/" className="shrink-0 rounded-s focus-visible:outline-lilac-50">
-          <Logo variant="landing" className="h-6 sm:h-7" />
+        <Link to="/" className="shrink-0 rounded-s focus-visible:outline-highlight-400">
+          <Logo variant="reversed" className="h-6 sm:h-7" />
         </Link>
         <div className="flex items-center gap-3 sm:gap-5">
           <LanguageSwitcher language={language} copy={copy} onChange={setLanguage} />
           <Link
             to="/login"
-            className="rounded-full border-2 border-lilac-50 px-4 py-1.5 font-display text-sm font-bold whitespace-nowrap text-landing-ink transition-colors hover:bg-landing-ink/10 focus-visible:outline-lilac-50"
+            className="rounded-m border border-white/50 px-4 py-2 text-sm font-semibold whitespace-nowrap text-landing-ink transition-colors hover:bg-landing-ink/10 focus-visible:outline-highlight-400"
           >
             {copy.nav.signIn}
           </Link>
@@ -49,20 +49,20 @@ export function LandingPage() {
           <div className="flex flex-col items-start gap-6">
             <h1 className="display-xl">
               {copy.hero.headlineBefore}
-              <span className="text-mustard-400">{copy.hero.headlineHighlight}</span>
+              <span className="box-decoration-clone rounded-s bg-highlight-400 px-[0.08em] text-brand-950">{copy.hero.headlineHighlight}</span>
               {copy.hero.headlineAfter}
             </h1>
             <p className="lede text-landing-ink-muted">{copy.hero.lede}</p>
             <div className="flex flex-col items-start gap-3">
               <TryDemoButton label={copy.hero.tryDemo} />
-              <p className="font-mono text-xs text-landing-ink-muted">{copy.hero.demoNote}</p>
+              <p className="text-sm text-landing-ink-muted">{copy.hero.demoNote}</p>
             </div>
           </div>
 
           {/* The rail: a 2px string the three tags hang from. When the rail is narrower than the three
               tags side by side, they shrink and overlap (container sizes below) so none is clipped. */}
           <div className="@container relative mx-auto w-full max-w-[720px] pb-4">
-            <div aria-hidden="true" className="h-0.5 w-full bg-plum-900" />
+            <div aria-hidden="true" className="h-0.5 w-full bg-brand-900" />
             <ul className="m-0 flex list-none justify-center gap-4 p-0 @max-[700px]:gap-0">
               {copy.demoTags.map((tag, index) => (
                 <li
@@ -73,7 +73,7 @@ export function LandingPage() {
                   )}
                 >
                   <HangTag
-                    tone={tagLayout[index]?.tone ?? 'mustard'}
+                    tone={tagLayout[index]?.tone ?? 'highlight'}
                     drop={tagLayout[index]?.drop ?? 40}
                     sway
                     tenantLine={tag.tenantLine}

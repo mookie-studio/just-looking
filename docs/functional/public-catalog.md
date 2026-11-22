@@ -8,10 +8,10 @@ Addresses: the catalog is `/{tenantSlug}` and a product is `/{tenantSlug}/p/{pro
 
 The header shows the Tenant's **Logo** (if any) and **name**; with a **Brand color** the header background and buttons use it, with readable black or white text. A footer section shows the **description** and the **contact details** (email, phone, address, website) when the Admin filled them. See [Catalog setup](./catalog-setup.md).
 
-- **Focus ring.** A dark enough Brand color (at least 3:1 contrast on white) also becomes the keyboard focus ring, so focus stays visible on branded buttons. A light Brand color (for example yellow) keeps the default plum ring, because a light ring on a light page would not be seen.
-- **Product cards.** Products in the grid, the Featured strip and Related products are cards: image in 4:3 (the placeholder when there is none), product name, and a mustard **Featured** badge on Featured products. The card lifts slightly on hover (not under reduced motion). There is never a price.
+- **Focus ring.** A dark enough Brand color (at least 3:1 contrast on white) also becomes the keyboard focus ring, so focus stays visible on branded buttons. A light Brand color (for example yellow) keeps the default petrol ring, because a light ring on a light page would not be seen.
+- **Product cards.** Products in the grid, the Featured strip and Related products are cards: image in 4:3 (the placeholder when there is none), product name, and a highlighter-yellow **Featured** badge on Featured products. The card lifts slightly on hover (not under reduced motion). There is never a price.
 - **Product page title.** The product name is the page's large title (Archivo extra-bold, 36px on wide screens, 28px on phones).
-- **Made with Just Looking.** Every public catalog page ends with a small, centred line "Made with Just Looking" with the brand's eyes symbol. It links to the [landing page](./landing-page.md) at `/`, in the same tab. It is always shown, with or without a Tenant profile, and it is not affected by the Brand color.
+- **Made with Just Looking.** Every public catalog page ends with a small, centred line "Made with Just Looking" with the brand's shop-window mark. It links to the [landing page](./landing-page.md) at `/`, in the same tab. It is always shown, with or without a Tenant profile, and it is not affected by the Brand color.
 
 ## The catalog home
 

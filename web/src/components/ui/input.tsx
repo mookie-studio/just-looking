@@ -3,7 +3,7 @@ import { controlClass, monoClass } from '@/components/ui/control'
 import { cn } from '@/lib/utils'
 
 type InputProps = ComponentProps<'input'> & {
-  /** Martian Mono, for codes such as SKUs and slugs. */
+  /** Codes such as SKUs and slugs: tabular figures, slightly tracked. */
   mono?: boolean
 }
 

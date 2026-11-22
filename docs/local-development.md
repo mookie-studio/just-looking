@@ -158,4 +158,4 @@ get in the way while testing by hand.
 
 ## Fonts
 
-The SPA loads its two typefaces, Archivo and Martian Mono, from Google Fonts at run time (`web/index.html`); nothing needs to be installed. Offline, the browser falls back to system fonts and the layout still works. To check the dark theme locally, switch your operating system (or the browser devtools setting for `prefers-color-scheme`) to dark.
+The SPA loads its typeface, Archivo (with its width axis), from Google Fonts at run time (`web/index.html`); nothing needs to be installed. Offline, the browser falls back to system fonts and the layout still works, without the condensed titles. The interface has a single (light) theme.
