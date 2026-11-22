@@ -48,8 +48,10 @@ Only features that exist today are listed. On phones the tags of the rail stack 
 
 A deep-ink band at the bottom of the page:
 
-- On the left: the Just Looking logo (links to `/`), a **Sign in** link ("Entrar") to `/login`, and the current year.
-- On the right (below the rest on phones): the maker's credit, **A product by** ("Un producto de") above the mookie studio logo. The logo links to mookie studio on GitHub, https://github.com/mookie-studio, in a new tab. Its files are mookie studio's own, unchanged (see [DESIGN.md](../../DESIGN.md), mookie studio credit).
+It is laid out like EntryHub's footer:
+
+- First, on its own row: the maker's credit, **A product by** ("Un producto de") above a large mookie studio logo. The logo links to mookie studio on GitHub, https://github.com/mookie-studio, in a new tab. Its files are mookie studio's own, unchanged (see [DESIGN.md](../../DESIGN.md), mookie studio credit). A thin rule closes the row.
+- Then one row: **Just Looking · product catalog** ("Just Looking · catálogo de productos") on the left; a **Sign in** link ("Entrar") to `/login` and the current year on the right (wrapping under the product line on phones).
 
 There are no social links and no legal pages.
 

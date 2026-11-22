@@ -145,11 +145,11 @@ The mark is a **hang tag**: a highlighter-yellow swing tag with its eyelet and a
 
 ## mookie studio credit
 
-Just Looking is a product by mookie studio. The maker's credit sits in the landing footer, on the right of its `brand-950` band (stacked below the rest on phones): the label "A product by" ("Un producto de") in the header-band style, `landing-ink-muted`, above the mookie studio wordmark.
+Just Looking is a product by mookie studio. The landing footer is laid out like EntryHub's: on its `brand-950` band, the maker's credit has its own row, the label "A product by" ("Un producto de", 16px, `landing-ink-muted`) above the mookie studio wordmark, closed by a 1px white rule at 20%; below it, one row with the product line "Just Looking · product catalog" on the left and Sign in and the year on the right.
 
 - Component `MookieStudioCredit` in `web/src/components/brand/`; files in `web/public/brand/mookie-studio/` (see its README), copied unchanged from mookie studio's logo pack.
 - `wordmark-on-dark.svg` on ink and dark grounds, `wordmark-on-light.svg` (prop `onLight`) on light grounds. Never recoloured, redrawn or cropped.
-- Shown 64px high. Keep at least 24px between the credit and any other footer item.
+- Shown large: 96px high (104px from 640px), the same size as in EntryHub's footer. The file includes its clear space; a -8px margin lines the mark up with the label.
 - The wordmark links to mookie studio on GitHub (`https://github.com/mookie-studio`), in a new tab, with the accessible name "mookie studio on GitHub" and a visible focus outline.
 - One credit per page, only in a footer. It never replaces the Just Looking logo.
 

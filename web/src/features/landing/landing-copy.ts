@@ -107,6 +107,7 @@ const en = {
   footer: {
     signIn: 'Sign in',
     madeBy: 'A product by',
+    tagline: 'Just Looking · product catalog',
   },
 }
 
@@ -204,6 +205,7 @@ const es: LandingCopy = {
   footer: {
     signIn: 'Entrar',
     madeBy: 'Un producto de',
+    tagline: 'Just Looking · catálogo de productos',
   },
 }
 

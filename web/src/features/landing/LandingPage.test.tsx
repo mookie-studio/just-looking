@@ -115,6 +115,7 @@ describe('LandingPage', () => {
     expect(within(footer).getByRole('link', { name: 'Sign in' })).toHaveAttribute('href', '/login')
     expect(within(footer).getByText(`© ${new Date().getFullYear()}`)).toBeInTheDocument()
     expect(within(footer).getByText('A product by')).toBeInTheDocument()
+    expect(within(footer).getByText('Just Looking · product catalog')).toBeInTheDocument()
     expect(within(footer).getByRole('link', { name: 'mookie studio on GitHub' })).toHaveAttribute('href', 'https://github.com/mookie-studio')
   })
 
